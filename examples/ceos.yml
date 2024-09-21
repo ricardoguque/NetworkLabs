@@ -1,0 +1,52 @@
+name: ceos
+topology:
+  nodes:
+    r1: &ceos
+      kind: ceos
+      image: ceos:4.32.2F
+    r2:
+      <<: *ceos
+    r3:
+      <<: *ceos
+    r4:
+      <<: *ceos
+    r5:
+      <<: *ceos
+    r6:
+      <<: *ceos
+    r7:
+      <<: *ceos
+    r8:
+      <<: *ceos
+    r9:
+      <<: *ceos
+    r10:
+      <<: *ceos
+    r11:
+      <<: *ceos
+    r12:
+      <<: *ceos
+    r13:
+      <<: *ceos
+    r14:
+      <<: *ceos
+    r15:
+      <<: *ceos
+    r16:
+      <<: *ceos
+  links:
+    - endpoints: ["r1:eth1", "r2:eth1"]
+    - endpoints: ["r1:eth2", "r3:eth1"]
+    - endpoints: ["r1:eth3", "r4:eth1"]
+    - endpoints: ["r1:eth4", "r5:eth1"]
+    - endpoints: ["r1:eth5", "r6:eth1"]
+    - endpoints: ["r1:eth6", "r7:eth1"]
+    - endpoints: ["r1:eth7", "r8:eth1"]
+    - endpoints: ["r1:eth8", "r9:eth1"]
+    - endpoints: ["r1:eth9", "r10:eth1"]
+    - endpoints: ["r1:eth10", "r11:eth1"]
+    - endpoints: ["r1:eth11", "r12:eth1"]
+    - endpoints: ["r1:eth12", "r13:eth1"]
+    - endpoints: ["r1:eth13", "r14:eth1"]
+    - endpoints: ["r1:eth14", "r15:eth1"]
+    - endpoints: ["r1:eth15", "r16:eth1"]

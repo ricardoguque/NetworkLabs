@@ -1,0 +1,61 @@
+name: csrv
+mgmt:
+  network: mgmt
+  ipv4-subnet: 172.100.100.0/24
+  ipv6-subnet: 2001:172:100:100::/80
+topology:
+  nodes:
+    r1:
+      kind: cisco_csr1000v
+      image: vrnetlab/vr-csr:17.03.02
+      mgmt-ipv4: 172.100.100.9
+      startup-config: |
+        no ip domain-lookup
+        interface GigabitEthernet2
+          description to r2
+          no shutdown
+    r2:
+      kind: cisco_csr1000v
+      image: vrnetlab/vr-csr:17.03.02
+      mgmt-ipv4: 172.100.100.2
+      env:
+        BOOT_DELAY: 30
+    r3:
+      kind: cisco_csr1000v
+      image: vrnetlab/vr-csr:17.03.02
+      mgmt-ipv4: 172.100.100.3
+    r4:
+      kind: cisco_csr1000v
+      image: vrnetlab/vr-csr:17.03.02
+      mgmt-ipv4: 172.100.100.4
+      env:
+        BOOT_DELAY: 30
+    r5:
+      kind: cisco_csr1000v
+      image: vrnetlab/vr-csr:17.03.02
+      mgmt-ipv4: 172.100.100.5
+    r6:
+      kind: cisco_csr1000v
+      image: vrnetlab/vr-csr:17.03.02
+      mgmt-ipv4: 172.100.100.6
+      env:
+        BOOT_DELAY: 30
+    r7:
+      kind: cisco_csr1000v
+      image: vrnetlab/vr-csr:17.03.02
+      mgmt-ipv4: 172.100.100.7
+    r8:
+      kind: cisco_csr1000v
+      image: vrnetlab/vr-csr:17.03.02
+      mgmt-ipv4: 172.100.100.8
+      env:
+        BOOT_DELAY: 30
+
+  links:
+    - endpoints: ["r1:Gi2", "r2:Gi2"]
+    - endpoints: ["r1:Gi3", "r3:Gi2"]
+    - endpoints: ["r1:Gi4", "r4:Gi2"]
+    - endpoints: ["r1:Gi5", "r5:Gi2"]
+    - endpoints: ["r1:Gi6", "r6:Gi2"]
+    - endpoints: ["r1:Gi7", "r7:Gi2"]
+    - endpoints: ["r1:Gi8", "r8:Gi2"]

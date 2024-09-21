@@ -1,0 +1,6 @@
+name: linux_container
+topology:
+  nodes:
+    n2:
+      kind: linux
+      image: alpine:latest

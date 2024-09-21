@@ -1,0 +1,31 @@
+name: veos
+topology:
+  nodes:
+    r1: &veos
+      kind: arista_veos
+      image: vrnetlab/vr-veos:4.32.2F
+    r2:
+      <<: *veos
+    r3:
+      <<: *veos
+    r4:
+      <<: *veos
+    r5:
+      <<: *veos
+    r6:
+      <<: *veos
+    r7:
+      <<: *veos
+    r8:
+      <<: *veos
+    r9:
+      <<: *veos
+    r10:
+      <<: *veos
+    r11:
+      <<: *veos
+    r12:
+      <<: *veos
+
+  links:
+    - endpoints: ["r1:eth1", "r2:eth1"]

@@ -1,0 +1,40 @@
+name: ros
+topology:
+  nodes:
+    r1: &ros7
+      kind: mikrotik_ros
+      image: vrnetlab/vr-routeros:7.15.3
+    r2:
+      <<: *ros7
+    r3:
+      <<: *ros7
+    r4:
+      <<: *ros7
+    r5:
+      <<: *ros7
+    r6:
+      <<: *ros7
+    r7:
+      <<: *ros7
+    r8:
+      <<: *ros7
+    r9: &ros6
+      kind: mikrotik_ros
+      image: vrnetlab/vr-routeros:6.49.13
+    r10:
+      <<: *ros6
+    r11:
+      <<: *ros6
+    r12:
+      <<: *ros6
+    r13:
+      <<: *ros6
+    r14:
+      <<: *ros6
+    r15:
+      <<: *ros6
+    r16:
+      <<: *ros6
+
+  links:
+    - endpoints: ["r1:eth1", "r2:eth1"]
